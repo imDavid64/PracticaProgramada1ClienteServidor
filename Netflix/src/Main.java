@@ -11,6 +11,8 @@ public class Main {
         //Catalogo con todas las películas
         List<Pelicula> catalogo = crearCatalogo();
 
+        System.out.println("Prueba push");
+
 
         // Variables
         boolean repetirMenu = true;
@@ -106,7 +108,7 @@ public class Main {
                         System.out.println("Saliendo...\n");
                         break;
                     default:
-                        System.out.println("Opción no válida. Por favor, elige una opción entre 1 y 4.");
+                        System.out.println("Opción no válida. Por favor, elige una opción entre 1 y 6.");
                         break;
                 }
             } catch (Exception e) {
