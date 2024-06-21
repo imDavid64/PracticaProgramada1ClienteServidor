@@ -74,7 +74,7 @@ public class Main {
 
                             try {
                                 int numOpcion = Integer.parseInt(opcionEscogida);
-                                PeliculaComedia Pelicula = (PeliculaComedia) peliculasComedia.get(numOpcion - 1);//preguntarle al profe si se puede xD
+                                PeliculaComedia Pelicula = (PeliculaComedia) peliculasComedia.get(numOpcion - 1);
                                 System.out.println(Pelicula.toString());
                                 flag = true;
                             } catch (Exception e) {
@@ -98,8 +98,40 @@ public class Main {
                         break;
 
                     case 5:
-                        // todos
-                        System.out.println("Opción 5 seleccionada: Todas las películas.\n");
+                        int iTodos = 1;
+                        String submenuTODOS = "";
+                        for (Pelicula peli : catalogo) {
+                            submenuTODOS = submenuTODOS + iTodos + " . " + peli.getTitulo() + "\n";
+                            iTodos += 1;
+                        }
+                        submenuTODOS = submenuTODOS + iTodos + " . Salir\n";
+
+
+                        boolean flagTODOS = false;
+
+                        do {
+                            System.out.println(submenuTODOS);
+                            System.out.print("Elija una opción: ");
+                            String opcionEscogida = scanner.nextLine();
+
+                            String limite = String.valueOf(catalogo.size() + 1);
+
+                            //condición de salida del menú
+                            if (opcionEscogida.equals(limite)) {
+                                System.out.print("Regresando a menú principal ...");
+                                flagTODOS = true;
+
+                            }
+
+                            try {
+                                int numOpcion = Integer.parseInt(opcionEscogida);
+                                Pelicula peli = catalogo.get(numOpcion - 1);
+                                System.out.println(peli.toString());
+                                flagTODOS = true;
+                            } catch (Exception e) {
+                                System.out.println("La opción escogida no es válida");
+                            }
+                        }while(!flagTODOS);
                         break;
                     case 6:
                         repetirMenu = false;

@@ -53,8 +53,8 @@ abstract public class Pelicula {
     @Override
     public String toString() {
         return
-                "\nTítulo:'" + titulo + '\n' +
-                "Creador:'" + creador + '\n' +
+                "\nTítulo:" + titulo + '\n' +
+                "Creador:" + creador + '\n' +
                 "Año de lanzamiento:" + anio +"\n"+
                 "Duración en minutos:" + duracion;
     }
