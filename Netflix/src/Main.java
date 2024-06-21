@@ -142,9 +142,7 @@ public class Main {
                         break;
                 }
             } catch (Exception e) {
-                System.out.println("Parece que hubo un error :(\n");
-                repetirMenu = false;
-                break; // Salir del bucle en caso de error
+                System.out.println("El dato ingresado es inválido. Inténtelo denuevo.\n");
             }
         } // while
 
