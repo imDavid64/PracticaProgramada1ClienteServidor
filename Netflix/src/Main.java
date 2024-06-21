@@ -89,8 +89,50 @@ public class Main {
                         System.out.println("Opción 2 seleccionada: ACCION.\n");
                         break;
                     case 3:
-                        //terror
-                        System.out.println("Opción 3 seleccionada: TERROR.\n");
+                                                System.out.println("Opción 3 seleccionada: TERROR.\n");
+
+
+                        List<Pelicula> peliculasTerror = new ArrayList<>();
+
+                        for (Pelicula peli : catalogo) {
+                            if (peli instanceof PeliculaTerror) {
+                                peliculasTerror.add(peli);
+                            }
+                        }
+                        int aux = 1;
+                        String submenuTerror = "";
+                        for (Pelicula peli : peliculasTerror) {
+                            submenuTerror = submenuTerror + aux + " . " + peli.getTitulo() + "\n";
+                            aux += 1;
+                        }
+                        submenuTerror = submenuTerror + aux + " . Salir\n";
+
+
+                        boolean flag3 = false;
+
+                        do{
+                            System.out.println(submenuTerror);
+                            System.out.print("Elija una opción: ");
+                            String opcionEscogida = scanner.nextLine();
+
+                            String limite = String.valueOf(peliculasTerror.size() + 1);
+
+                            //condición de salida del menú
+                            if (opcionEscogida.equals(limite)) {
+                                System.out.print("Regresando a menú principal ...");
+                                flag3 = true;
+
+                            }
+
+                            try {
+                                int numOpcion = Integer.parseInt(opcionEscogida);
+                                PeliculaTerror Pelicula = (PeliculaTerror) peliculasTerror.get(numOpcion - 1);
+                                System.out.println(Pelicula.toString());
+                                flag3 = true;
+                            } catch (Exception e) {
+                                System.out.println("La opción escogida no es válida");
+                            }
+                        }while(!flag3);
                         break;
                     case 4:
                         // drama
